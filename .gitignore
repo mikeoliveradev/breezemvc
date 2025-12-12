@@ -1,0 +1,16 @@
+# Environment and credentials
+.env
+*.log
+.DS_Store
+
+# IDE settings (personal)
+.vscode/
+.idea/
+
+# Cache and temporary files
+storage/cache/*
+!storage/cache/.gitkeep
+
+# Dependencies
+# vendor/  <-- COMENTADO: Se incluye en el repo para filosofía Zero Composer
+node_modules/

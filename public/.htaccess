@@ -1,0 +1,164 @@
+# =============================================
+# BreezeMVC - Public Apache Configuration
+# =============================================
+# Este archivo configura el comportamiento de Apache para BreezeMVC
+# Ajusta según las necesidades de tu proyecto
+
+# =============================================
+# 1. URL REWRITING (REQUERIDO)
+# =============================================
+# Habilita el motor de reescritura de URLs
+RewriteEngine On
+
+# Define la base de la URL
+# Si tu dominio apunta directamente a /public, usa /
+RewriteBase /
+
+# Deshabilitar listado de directorios / 
+Options -Indexes
+
+# Redirige todas las peticiones que NO sean archivos o directorios reales a index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
+
+# =============================================
+# 2. SEGURIDAD ADICIONAL
+# =============================================
+
+# Proteger archivo .htaccess
+<Files .htaccess>
+  Require all denied
+</Files>
+
+# NOTA: No necesitamos proteger .env aquí porque está fuera del directorio public/
+# y por lo tanto es inaccesible desde el navegador.
+
+# Proteger archivos ocultos o de sistema dentro de public
+<FilesMatch "^\.(?!well-known)">
+  Require all denied
+</FilesMatch>
+
+# =============================================
+# 3. HTTPS Y WWW (OPCIONAL - COMENTADO)
+# =============================================
+# Descomenta estas líneas solo en PRODUCCIÓN con SSL configurado
+
+# Forzar HTTPS
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Remover WWW (redirigir www.tudominio.com a tudominio.com)
+# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+# RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# O forzar WWW (redirigir tudominio.com a www.tudominio.com)
+# RewriteCond %{HTTP_HOST} !^www\. [NC]
+# RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# =============================================
+# 4. BLOQUEO DE IPS Y BOTS (OPCIONAL - COMENTADO)
+# =============================================
+
+# <RequireAll>
+#     Require all granted
+#     Require not ip 123.123.123.123
+# </RequireAll>
+
+# Bloquea bots maliciosos conocidos
+# RewriteCond %{HTTP_USER_AGENT} (BadBot|Scraper|Crawler) [NC]
+# RewriteRule .* - [F,L]
+
+# =============================================
+# 5. PREVENCIÓN DE HOTLINKING (OPCIONAL - COMENTADO)
+# =============================================
+# RewriteCond %{HTTP_REFERER} !^$
+# RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?tudominio.com [NC]
+# RewriteRule \.(jpg|jpeg|png|gif|webp|svg)$ - [NC,F,L]
+
+# =============================================
+# 6. LÍMITES DE SEGURIDAD (OPCIONAL)
+# =============================================
+# LimitRequestBody 10485760
+
+# =============================================
+# 7. PÁGINAS DE ERROR (OPCIONAL)
+# =============================================
+# ErrorDocument 404 /404.html
+# ErrorDocument 403 /403.html
+# ErrorDocument 500 /500.html
+
+# =============================================
+# 8. COMPRESIÓN GZIP (RECOMENDADO)
+# =============================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE font/woff
+    AddOutputFilterByType DEFLATE font/woff2
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# =============================================
+# 9. CACHÉ DEL NAVEGADOR (RECOMENDADO)
+# =============================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Imágenes
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    
+    # CSS y JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Fuentes
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    
+    # HTML (no cachear para tener siempre la última versión)
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# =============================================
+# 10. CONFIGURACIÓN PHP (OPCIONAL)
+# =============================================
+# <IfModule mod_php.c>
+#     php_value upload_max_filesize 10M
+#     php_value post_max_size 10M
+#     php_value max_execution_time 300
+#     php_value max_input_time 300
+#     php_value memory_limit 256M
+# </IfModule>
+
+# =============================================
+# NOTAS IMPORTANTES
+# =============================================
+# 1. Las secciones comentadas (#) están deshabilitadas
+# 2. Descomenta solo lo que necesites
+# 3. En desarrollo local, mantén HTTPS deshabilitado
+# 4. En producción, habilita HTTPS y optimizaciones
+# 5. Ajusta RewriteBase si tu app está en una subcarpeta
+# 6. Algunos hostings no permiten todas las directivas
+# 7. Si algo no funciona, comenta esa sección
+
+# =============================================
+# SOPORTE
+# =============================================
+# Documentación: https://github.com/mikeoliveradev/breezemvc
+# Issues: https://github.com/mikeoliveradev/breezemvc/issues

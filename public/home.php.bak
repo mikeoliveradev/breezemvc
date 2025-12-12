@@ -1,0 +1,970 @@
+<?php
+use src\utils\Utils;
+$id_user = 3;
+$id = Utils::sanitizeInt($id_user);
+//$id = Utils::sanitizeInt($_POST['id'] ?? 0);
+//$nombre = Utils::sanitizeString($_POST['nombre']);
+
+if (Utils::isMobileDevice()) {}
+
+?>
+<!DOCTYPE html>
+<html lang="en" dir=""> 
+<?php require_once('public/views/head.php'); ?>
+
+<body>
+  <!-- ========== HEADER ========== -->
+  <header id="header" class="navbar navbar-expand-lg navbar-end navbar-absolute-top navbar-dark navbar-show-hide" data-hs-header-options='{"fixMoment": 1000, "fixEffect": "slide"}'>
+    <!-- Topbar -->
+    <?php include_once('public/views/top_bar.php'); ?>
+    <!-- End Topbar -->
+    <div class="container">
+      <!-- NAVEGACION -->
+       <?php require_once('public/views/nav.php'); ?>
+      <!-- END NAVEGACION -->
+    </div>
+  </header>
+
+  <!-- ========== END HEADER ========== -->
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <!-- Swiper Slider -->
+    <div class="border-bottom">
+      <!-- Main Slider -->
+      <div class="js-swiper-main swiper vh-md-70">
+        <div class="swiper-wrapper">
+          
+          <!-- Slide 1 -->
+          <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(public/assets/img/others/impulsora-soluciones-en-lineas-de-produccion-2.jpg);">
+            <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
+              <div class="w-100 w-lg-50">
+                
+                <h1 class="display-4 text-white mb-0">Tecnología Parker: impulsando su retorno de inversión.</h1>
+
+              </div>
+            </div>
+          </div>
+          <!-- End Slide 1 -->
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(public/assets/img/others/impulsora-soluciones-en-extraccion-petrolera-3.jpg);">
+            <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
+              <div class="w-100 w-lg-50">
+                
+                <h2 class="display-4 text-white mb-0">Expertos en soluciones Parker para hidrocarburos.</h2>
+
+              </div>
+            </div>
+          </div>
+          <!-- End Slide 2 -->
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(public/assets/img/others/impulsora-soluciones-en-energias-renovables-3.jpg);">
+            <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
+              <div class="w-100 w-lg-50">
+
+                <h2 class="display-4 text-white mb-0">Distribuidor Parker: movimiento para un futuro sostenible.</h2>
+
+              </div>
+            </div>
+          </div>
+          <!-- End Slide 3 -->
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(public/assets/img/others/impulsora-soluciones-en-automatizacion-industrial-3.jpg);">
+            <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
+              <div class="w-100 w-lg-50">
+                <h2 class="display-4 text-white mb-0">Distribuidor Parker, soluciones para el sector industrial.</h2>
+              </div>
+            </div>
+          </div>
+          <!-- End Slide 4 -->
+
+        </div>
+
+        <!-- Arrows -->
+        <div class="d-none d-md-inline-block">
+          <div class="js-swiper-main-button-next swiper-button-next swiper-button-next-soft-white"></div>
+          <div class="js-swiper-main-button-prev swiper-button-prev swiper-button-prev-soft-white"></div>
+        </div>
+      </div>
+      <!-- End Main Slider -->
+
+      <!-- Thumbs Slider -->
+      <div class="js-swiper-thumbs swiper">
+        <div class="swiper-wrapper">
+
+          <!-- Slide -->
+          <div class="swiper-slide">
+            <div class="d-flex align-items-center bg-white position-relative vh-md-30">
+              <div class="container content-space-2">
+                <div class="row">
+                  <div class="col-md-4">
+                    <span class="fs-3 fw-semibold">01.</span>
+                    <h3 class="text-primary">Como distribuidor Parker, ofrecemos la vanguardia en soluciones diseñadas para brindar respuestas ágiles y el mejor retorno de inversión a nuestros clientes.</h3>
+                    <p class="mb-0 d-md-none">¿Por qué elegirnos?</p>
+                  </div>
+                  <!-- End Col -->
+                </div>
+                <!-- End Row -->
+              </div>
+
+              <div class="col-md-5 d-none d-md-inline-block bg-primary position-absolute top-0 end-0 bottom-0">
+                <div class="position-absolute top-50 translate-middle-y p-7">
+                  <h3 class="text-white">¿Por qué elegirnos?</h3>
+                </div>
+              </div>
+              <!-- End Col -->
+            </div>
+          </div>
+          <!-- End Slide -->
+
+          <!-- Segundo Slide -->
+          <div class="swiper-slide">
+            <div class="d-flex align-items-center bg-white position-relative vh-md-30">
+              <div class="container content-space-2">
+                <div class="row">
+                  <div class="col-md-4">
+                    <span class="fs-3 fw-semibold">02.</span>
+                    <h3 class="text-primary">Suministramos productos y servicios para controles hidráulicos, incluidas aplicaciones marinas. En operaciones en tierra y mar. Seguridad y calidad a la industria de Petroquímica y Refinación en México.</h3>
+                    <p class="mb-0 d-md-none">Cotice su proyecto hoy</p>
+                  </div>
+                  <!-- End Col -->
+                </div>
+                <!-- End Row -->
+              </div>
+
+              <div class="col-md-5 d-none d-md-inline-block bg-primary position-absolute top-0 end-0 bottom-0">
+                <div class="position-absolute top-50 translate-middle-y p-7">
+                  <h3 class="text-white">Cotice su proyecto hoy</h3>
+                </div>
+              </div>
+              <!-- Segundo End Col -->
+            </div>
+          </div>
+          <!-- End Slide -->
+
+          <!-- Tercer Slide -->
+          <div class="swiper-slide">
+            <div class="d-flex align-items-center bg-white position-relative vh-md-30">
+              <div class="container content-space-2">
+                <div class="row">
+                  <div class="col-md-4">
+                    <span class="fs-3 fw-semibold">03.</span>
+                    <h3 class="text-primary">Si bien nos enfocamos en el sector energético, nuestra tecnología Parker es clave en la optimización de procesos de energías renovables.</h3>
+                    <p class="mb-0 d-md-none">Vea nuestras aplicaciones</p>
+                  </div>
+                  <!-- End Col -->
+                </div>
+                <!-- End Row -->
+              </div>
+
+              <div class="col-md-5 d-none d-md-inline-block bg-primary position-absolute top-0 end-0 bottom-0">
+                <div class="position-absolute top-50 translate-middle-y p-7">
+                  <h3 class="text-white">Vea nuestras aplicaciones</h3>
+                </div>
+              </div>
+              <!-- End Col -->
+            </div>
+          </div>
+          <!-- End Tercer Slide -->
+
+          <!-- Cuarto Slide -->
+          <div class="swiper-slide">
+            <div class="d-flex align-items-center bg-white position-relative vh-md-30">
+              <div class="container content-space-2">
+                <div class="row">
+                  <div class="col-md-4">
+                    <span class="fs-3 fw-semibold">04.</span>
+                    <h3 class="text-primary">Somos el socio líder en tecnologías de control y movimiento. Suministramos seguridad y calidad a la industria automotriz, aeronáutica y de manufactura.</h3>
+                    <p class="mb-0 d-md-none">Conozca el catálogo Parker</p>
+                  </div>
+                  <!-- End Col -->
+                </div>
+                <!-- End Row -->
+              </div>
+
+              <div class="col-md-5 d-none d-md-inline-block bg-primary position-absolute top-0 end-0 bottom-0">
+                <div class="position-absolute top-50 translate-middle-y p-7">
+                  <h3 class="text-white">Conozca el catálogo Parker</h3>
+                </div>
+              </div>
+              <!-- End Col -->
+            </div>
+          </div>
+          <!-- End Cuarto Slide -->
+
+        </div>
+      </div>
+      <!-- End Thumbs Slider -->
+    </div>
+    <!-- Swiper Slider -->
+
+    <!-- NOSOTROS -->
+    <div id="nosotrosSection" class="container content-space-t-2 content-space-t-lg-3">
+      <div class="w-lg-75 text-center mx-lg-auto">
+        <!-- Heading -->
+        <div class="mb-5 mb-md-10">
+          <h2 class="display-4">Nosotros</h2>
+          <p class="lead">Impulsora es la compañía con mayor crecimiento y a la vanguardia en el sector industrial de México, que suministra productos y servicios para controles hidráulicos móviles, incluidas aplicaciones marinas.</p>
+          <p class="lead fw-bold">Todo para contribuir, innovar y mejorar las condiciones de nuestros clientes, al mismo tiempo, potenciando el desarrollo de nuestro país.</p>
+        </div>
+        <!-- End Heading -->
+      </div>
+
+      <div class="row gx-3">
+        <div class="col mb-3">
+          <div class="bg-img-start" style="background-image: url(public/assets/img/nosotros/nosotros-1.jpg); height: 15rem;"></div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-3 d-none d-md-block mb-3">
+          <div class="bg-img-start" style="background-image: url(public/assets/img/nosotros/nosotros-slider-3.jpg); height: 15rem;"></div>
+        </div>
+        <!-- End Col -->
+        
+        <div class="col mb-3">
+          <div class="bg-img-start" style="background-image: url(public/assets/img/nosotros/nosotros-slider-5.jpg); height: 15rem;"></div>
+        </div>
+        <!-- End Col -->
+
+        <div class="w-100"></div>
+
+        <div class="col mb-3 mb-md-0">
+          <div class="bg-img-start" style="background-image: url(public/assets/img/nosotros/services-venta-especializada.jpg); height: 15rem;"></div>
+        </div>
+        <!-- End Col -->
+        
+        <div class="col-4 d-none d-md-block mb-3 mb-md-0">
+          <div class="bg-img-start" style="background-image: url(public/assets/img/nosotros/nosotros-slider-4.jpg); height: 15rem;"></div>
+        </div>
+        <!-- End Col -->
+        
+        <div class="col">
+          <div class="bg-img-start" style="background-image: url(public/assets/img/nosotros/FLUID-CONTROL-PARKER-AUTOMATIZACION-INDUSTRIAL.jpeg); height: 15rem;"></div>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End NOSOTROS -->
+
+    <!-- Feature Stats -->
+    <div class="container content-space-2 content-space-lg-2">
+      <div class="row justify-content-lg-center">
+        <div class="col-sm-4 col-lg-3 mb-7 mb-sm-0">
+          <div class="text-center">
+            <h2 class="display-4">10</h2>
+            <p class="small">años en la industria</p>
+          </div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-sm-4 col-lg-3 mb-7 mb-sm-0">
+          <div class="text-center">
+            <h2 class="display-4">+ 35k</h2>
+            <p class="small">ventas</p>
+          </div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-sm-4 col-lg-3">
+          <div class="text-center">
+            <h2 class="display-4">99%</h2>
+            <p class="small">clientes satisfechos</p>
+          </div>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Feature Stats -->
+
+    <div class="border-top mx-auto" style="max-width: 25rem;"></div>
+
+    <!-- Info -->
+    <div class="container content-space-1 content-space-lg-2">
+
+      <div class="row justify-content-lg-between">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h2>Misión, visión y filosofía.</h2>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-lg-6">
+          <p><b>Misión</b><br>
+<b>1.</b> Suministrar seguridad y calidad a las empresas del sector industrial en México. Logrando el mejor retorno de inversión a nuestros clientes, respaldando su crecimiento en los mercados donde operan.</p>
+          <p><b>2.</b> Atraer y satisfacer la demanda de nuestros clientes, entregando un crecimiento rentable a través de respuestas ágiles, el mejor retorno de inversión, y una calidad superior a todo el mercado mexicano.</p>
+          <p><b>Visión</b><br>
+Consolidarnos como el principal socio de las empresas industriales en México. De tal forma que nos hemos comprometido a hacer visibles las grandes metas de nuestros clientes, con la finalidad de convertirnos en el proveedor referente del mercado. Impulsar a la industria mexicana, es nuestra pasión.</p>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+
+      <div class="row content-space-2 justify-content-lg-between">
+        <div class="col-lg-12">
+          <p>Al buscar inicialmente la satisfacción total y superación máxima de espectativas de nuestros clientes, empleamos una filosofía que funcione como herramienta para impulsar el logro de nuestros objetivos de manera íntegra. Las grandes ideas se logran con mayor éxito si existe un trabajo en equipo, es por eso que nuestra labor está orientada principalmente a una colaboración en equipo que genere el logro de objetivos, y resultados que beneficien fundamentalmente a nuestros clientes. El compromiso y la honestidad son esenciales para ganarnos la confianza de nuestros clientes, al entregar un producto o servicio con una calidad insuperable, y así garantizar y hacer visibles nuestros óptimos resultados como empresa. La responsabilidad es imprescindible en nuestros trabajo, ya que está en nuestras manos que nuestros clientes reciban el mejor servicio, traduciéndose para nosotros en utilidades y desarrollo. Estos principios nos conducen dentro y fuera de la empresa para conservar y mejorar el progreso y buen funcionamiento de la misma.</p>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+
+      <div class="row justify-content-lg-between">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h2>Objetivos estratégicos.</h2>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-lg-6">
+          <p>Seguir colaborando y fortaleciendo nuestro esfuerzo y nuestra pasión para mantener a la industria en movimiento, impulsando su crecimiento y desarrollo. Nuestro objetivo principal es alcanzar el mejor retorno de inversión para su empresa, brindándole a todo el sector industrial mexicano tranquilidad, seguridad y calidad a través de nuestros productos y servicios. Mantener y mejorar nuestro posicionamiento y competitividad en el mercado, considerando que en mediano o largo plazo, podríamos ampliar nuestro servicio hacia países sudamericanos.</p>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+
+    </div>
+    <!-- End Info -->
+
+    <div class="border-top mx-auto" style="max-width: 25rem;"></div>
+
+    <!-- SERVICIOS -->
+    <div id="serviciosSection" class="container content-space-t-2 content-space-t-lg-3 content-space-b-lg-2">
+      <!-- Heading -->
+      <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+        <h2 class="display-4">Servicios</h2>
+      </div>
+      <!-- End Heading -->
+
+      <!-- Step -->
+      <ul class="step step-md step-centered">
+
+        <li class="step-item">
+          <div class="step-content-wrapper">
+            <span class="step-icon step-icon-soft-primary">1</span>
+            <div class="step-content">
+              <h3>Venta especializada</h3>
+              <p>Tenemos la gama más completa en productos para la industria mexicana.
+<br><br>
+Tenemos la capacidad para proveer cualquier pieza o material que necesite para su línea de producción, somos los únicos en México con el catálogo Parker más amplio.</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-content-wrapper">
+            <span class="step-icon step-icon-soft-primary">2</span>
+            <div class="step-content">
+              <h3>Asesoría</h3>
+              <p>Impulsora cuenta con personal especializado con un respaldo de 20 años de experiencia.
+<br><br>
+Podemos ofrecerle una asesoría especializada ya sea telefónica, por correo electrónico o chat en línea a través de nuestra página web, para que su empresa obtenga el producto exacto a sus necesidades.</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-content-wrapper">
+            <span class="step-icon step-icon-soft-primary">3</span>
+            <div class="step-content">
+              <h3>Capacitación</h3>
+              <p>Para la perfecta colocación de las piezas.
+<br><br>
+Cuando adquiera productos extremadamente delicados, podemos ofrecer capacitación para su adecuada colocación.</p>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+      <!-- End Step -->
+    </div>
+    <!-- End SERVICIOS -->
+
+    <!-- Card Grid PRODUCTOS -->
+    <div class="bg-light rounded-2 mx-3 mx-xl-10">
+      <div class="container-xl container-fluid content-space-1 content-space-md-2 px-4 px-md-8 px-lg-10">
+        <div class="px-3">
+          <!-- Heading -->
+          <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+            <h2 class="text-dark">Productos</h2>
+          </div>
+          <!-- End Heading -->
+
+          <!-- Swiper Slider -->
+          <div class="js-swiper-card-blocks swiper swiper-equal-height">
+            <div class="swiper-wrapper">
+
+              <!-- PRODUCTO 1 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/mangueras-y-tubing.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Mangueras y tubing</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 1 -->
+
+              <!-- PRODUCTO 2 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/0-rings.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">O-Rings</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 2 -->
+
+              <!-- PRODUCTO 3 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/filtros-separadores-y-purificadores.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Filtros separadores y purificadores</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 3 -->
+
+              <!-- PRODUCTO 4 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/motores-drives-y-controladores.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Motores drives y controladores</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 4 -->
+
+              <!-- PRODUCTO 5 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/reguladores-control-de-flujo-y-medicion.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Reguladores control de flujo y medicion</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 5 -->
+
+              <!-- PRODUCTO 6 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/tratamiento-de-aire-y-secadores.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Tratamiento de aire y secadores</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 6 -->
+
+              <!-- PRODUCTO 7 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/aeroespacial.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Aeroespacial</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 7 -->
+
+              <!-- PRODUCTO 8 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/emi.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">EMI</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 8 -->
+
+              <!-- PRODUCTO 9 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/generadores-de-gas.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Generadores de gas</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 9 -->
+
+              <!-- PRODUCTO 10 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/refrigeracion.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Refrigeración</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 10 -->
+
+              <!-- PRODUCTO 11 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/bioprocesamiento-y-tecnologias-medicas.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Bioprocesamiento y tecnologías médicas</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 11 -->
+
+              <!-- PRODUCTO 12 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/gestion-termica-y-potencia.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Gestión térmica y potencia</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 12 -->
+
+              <!-- PRODUCTO 13 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/sistemas-de-accionamiento-y-de-tomas-de-fuerza.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Sistemas de accionamiento y de tomas de fuerza</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 13 -->
+
+              <!-- PRODUCTO 14 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/racores-y-acoplamientos-rapidos.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Racores y acoplamientos rápidos</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 14 -->
+
+              <!-- PRODUCTO 15 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/valvulas.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Válvulas</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 15 -->
+
+              <!-- PRODUCTO 16 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/cilindros-y-accionadores.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Cilindros y accionadores</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 16 -->
+
+              <!-- PRODUCTO 17 -->
+              <div class="swiper-slide rounded">
+                <!-- Card -->
+                <div class="card h-100 shadow">
+                  <img class="card-img-top" src="public/assets/img/productos/bombas.png" >
+
+                  <div class="card-body">
+                    <p class="card-text fw-bold fs-3">Bombas</p>
+                  </div>
+
+                  <div class="card-footer pt-0">
+                    <a class="card-link" href="">Ver categoría <i class="bi-chevron-right small ms-1"></i></a>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+              <!-- End PRODUCTO 17 -->
+
+            </div>
+
+            <!-- Swiper Pagination -->
+            
+          </div>
+          <!-- End Swiper Slider -->
+        </div>
+      </div>
+    </div>
+    <!-- End Card Grid PRODUCTOS -->
+
+    <!-- Map -->
+    <div id="contactoSection" class="position-relative rounded-2 mx-3 mx-md-8">
+      <div class="container content-space-1 content-space-lg-3">
+        <div class="row justify-content-md-end">
+          <div class="col-md-6 col-lg-5">
+            <!-- Card -->
+            <div class="card card-lg position-relative zi-3">
+              <div class="card-body">
+                <!-- Heading -->
+                <div class="mb-5">
+                  <h4 class="card-title">Contacto</h4>
+                  <h3 class="card-title h3">México.</h3>
+                </div>
+                <!-- End Heading -->
+
+                <!-- Media -->
+                <div class="d-flex mb-5">
+
+                  <div class="flex-grow-1">
+                    <h5 class="mb-1">Llámanos:</h5>
+                    <span class="d-block small">(55) 5788 9091</span>
+                  </div>
+                </div>
+                <!-- End Media -->
+
+                <!-- Media -->
+                <div class="d-flex mb-5">
+                  <div class="flex-grow-1">
+                    <h5 class="mb-1">Correo:</h5>
+                    <span class="d-block small">informes@impulsora.me</span>
+                  </div>
+                </div>
+                <!-- End Media -->
+
+                <!-- Media -->
+                <div class="d-flex">
+                  <div class="flex-grow-1">
+                    <h5 class="mb-1">Visitanos:</h5>
+                    <span class="d-block small">Pachuca N0. 8, Col. Cuauhtémoc Xalostoc. Estado de México.</span>
+                  </div>
+                </div>
+                <!-- End Media -->
+              </div>
+            </div>
+            <!-- End Card -->
+          </div>
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
+      </div>
+
+      <!-- Gmap -->
+      <div class="position-md-absolute top-0 start-0 bottom-0 end-0">
+        <div id="map" class="leaflet"
+             data-hs-leaflet-options='{
+               "map": {
+                 "scrollWheelZoom": false,
+                 "coords": [37.4040344, -122.0289704]
+               },
+               "marker": [
+                 {
+                   "coords": [37.4040344, -122.0289704],
+                   "icon": {
+                     "iconUrl": "./assets/svg/components/map-pin.svg",
+                     "iconSize": [50, 45]
+                   },
+                   "popup": {
+                     "text": "153 Williamson Plaza, Maggieberg",
+                     "title": "Address"
+                   }
+                 }
+               ]
+              }'></div>
+      </div>
+      <!-- End Gmap -->
+    </div>
+    <!-- End Map -->
+
+    
+
+    <!-- LOGOTIPO -->
+    <div class="container content-space-1 content-space-lg-1">
+      <div class="w-md-50 w-lg-25 text-center mx-md-auto">
+        <div class="row justify-content-lg-between">
+          <!-- Heading -->
+          <div class="mb-1">
+            <img src="public/assets/img/others/logo-very-big.png" class="img-fluid" >
+          </div>
+          <!-- End Heading -->
+        </div>
+      </div>
+    </div>
+    <!-- End LOGOTIPO -->
+
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  <!-- ========== FOOTER ========== -->
+  <?php include_once('public/views/footer.php'); ?>
+  <!-- ========== END FOOTER ========== -->
+
+  <!-- ========== SECONDARY CONTENTS ========== -->
+  <?php include_once('public/views/modal_signup.php'); ?>
+
+  <!-- Go To -->
+  <?php include_once('public/views/go_to.php'); ?>
+
+  <!-- Cookie Alert -->
+  <?php include_once('public/views/cookie_alert.php'); ?>
+  <!-- ========== END SECONDARY CONTENTS ========== -->
+
+  <?php require_once('public/views/javascripts.php'); ?>
+
+  <!-- JS Plugins Init. -->
+  <script>
+
+    
+
+    (function() {
+      // INITIALIZATION OF HEADER
+      // =======================================================
+      new HSHeader('#header').init()
+
+
+      // INITIALIZATION OF MEGA MENU
+      // =======================================================
+      new HSMegaMenu('.js-mega-menu', {
+          desktop: {
+            position: 'left'
+          }
+        })
+
+
+      // INITIALIZATION OF SHOW ANIMATIONS
+      // =======================================================
+      new HSShowAnimation('.js-animation-link')
+
+
+      // INITIALIZATION OF BOOTSTRAP VALIDATION
+      // =======================================================
+      HSBsValidation.init('.js-validate', {
+        onSubmit: data => {
+          data.event.preventDefault()
+          alert('Submited')
+        }
+      })
+
+
+      // INITIALIZATION OF BOOTSTRAP DROPDOWN
+      // =======================================================
+      HSBsDropdown.init()
+
+
+      // INITIALIZATION OF GO TO
+      // =======================================================
+      new HSGoTo('.js-go-to')
+
+
+      // INITIALIZATION OF AOS
+      // =======================================================
+      AOS.init({
+        duration: 650,
+        once: true
+      });
+
+
+      // INITIALIZATION OF SWIPER
+      // =======================================================
+      let activeIndex = 0
+      var sliderThumbs = new Swiper('.js-swiper-thumbs', {
+        slidesPerView: 1,
+        autoplay: {
+        delay: 7500,
+        disableOnInteraction: true,
+      },
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        followFinger: false,
+        loop: true,
+        on: {
+          'slideChangeTransitionEnd': function (event) {
+            if (sliderMain === undefined) return
+            sliderMain.slideTo(event.activeIndex)
+          }
+        }
+      });
+
+      var sliderMain = new Swiper('.js-swiper-main', {
+        effect: 'fade',
+        autoplay: {
+        delay: 7500,
+        disableOnInteraction: true,
+      },
+        loop: true,
+        navigation: {
+          nextEl: '.js-swiper-main-button-next',
+          prevEl: '.js-swiper-main-button-prev',
+        },
+        thumbs: {
+          swiper: sliderThumbs
+        },
+        on: {
+          'slideChangeTransitionEnd': function (event) {
+            if (sliderThumbs === undefined) return
+            sliderThumbs.slideTo(event.activeIndex)
+          }
+        }
+      })
+
+      // Clients
+      var swiper = new Swiper('.js-swiper-clients',{
+        slidesPerView: 2,
+        breakpoints: {
+          380: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 15,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 15,
+          },
+        },
+      });
+
+      // Card Grid
+      var swiper = new Swiper('.js-swiper-card-blocks',{
+        slidesPerView: 1,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: true,
+        },
+        pagination: {
+          el: '.js-swiper-card-blocks-pagination',
+          dynamicBullets: true,
+          clickable: true,
+        },
+        breakpoints: {
+          620: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+          },
+        },
+      });
+      
+    })()
+  </script>
+</body>
+</html>
