@@ -25,11 +25,24 @@ echo "🔧 Configuración de Base de Datos"
 read -p "¿Quieres configurar la base de datos ahora? (y/n): " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
+    # Detectar si MAMP está corriendo
+    MAMP_RUNNING=false
+    if ps aux | grep -i "[m]ysqld.*MAMP" > /dev/null 2>&1; then
+        MAMP_RUNNING=true
+        echo "✅ MAMP detectado y corriendo"
+    fi
+    
     read -p "Host MySQL (default: localhost): " db_host
     db_host=${db_host:-localhost}
     
-    read -p "Puerto MySQL (default: 3306, MAMP usa 8889): " db_port
-    db_port=${db_port:-3306}
+    # Sugerir puerto según MAMP
+    if [ "$MAMP_RUNNING" = true ]; then
+        read -p "Puerto MySQL (default: 8889 para MAMP): " db_port
+        db_port=${db_port:-8889}
+    else
+        read -p "Puerto MySQL (default: 3306): " db_port
+        db_port=${db_port:-3306}
+    fi
     
     read -p "Usuario MySQL: " db_user
     read -sp "Contraseña MySQL: " db_pass
@@ -37,7 +50,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     read -p "Nombre de la base de datos: " db_name
 
     # Actualizar .env (compatible con MacOS/Linux)
-    # Usamos perl para reemplazo in-place más seguro que sed entre sistemas
     perl -pi -e "s/DB_HOST=.*/DB_HOST=$db_host/" .env
     perl -pi -e "s/DB_PORT=.*/DB_PORT=$db_port/" .env
     perl -pi -e "s/DB_USER=.*/DB_USER=$db_user/" .env
@@ -50,26 +62,47 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     read -p "¿Quieres crear la tabla de migraciones en la BD? (y/n): " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-        # Verificar si mysql está disponible
-        if ! command -v mysql &> /dev/null; then
-            echo "❌ Error: El comando 'mysql' no está disponible."
+        # Determinar qué cliente MySQL usar
+        MYSQL_CMD=""
+        
+        if [ "$MAMP_RUNNING" = true ] && [ -f "/Applications/MAMP/Library/bin/mysql" ]; then
+            # Usar cliente de MAMP
+            MYSQL_CMD="/Applications/MAMP/Library/bin/mysql"
+            echo "ℹ️  Usando cliente MySQL de MAMP"
+        elif command -v mysql &> /dev/null; then
+            # Usar cliente del sistema
+            MYSQL_CMD="mysql"
+            echo "ℹ️  Usando cliente MySQL del sistema"
+        else
+            echo "❌ Error: No se encontró el comando 'mysql'."
             echo "   Opciones:"
             echo "   1. Instala MySQL client: brew install mysql-client"
-            echo "   2. O crea la tabla manualmente en phpMyAdmin usando database/schema.sql"
-        else
-            mysql -h "$db_host" -P "$db_port" -u "$db_user" -p"$db_pass" "$db_name" < database/schema.sql
+            echo "   2. O usa PHP directamente: php migrate.php status"
+            echo "   3. O crea la tabla manualmente en phpMyAdmin usando database/schema.sql"
+            MYSQL_CMD=""
+        fi
+        
+        if [ ! -z "$MYSQL_CMD" ]; then
+            # Intentar crear la tabla
+            $MYSQL_CMD -h "$db_host" -P "$db_port" -u "$db_user" -p"$db_pass" "$db_name" < database/schema.sql 2>&1
+            
             if [ $? -eq 0 ]; then
                 echo "✅ Tabla de migraciones creada exitosamente"
                 
-                # Aplicar migraciones
+                # Aplicar migraciones usando PHP (más confiable)
                 read -p "¿Quieres aplicar las migraciones pendientes? (y/n): " -n 1 -r
                 echo
                 if [[ $REPLY =~ ^[Yy]$ ]]; then
                     php migrate.php up
-                    echo "✅ Migraciones aplicadas"
+                    if [ $? -eq 0 ]; then
+                        echo "✅ Migraciones aplicadas"
+                    else
+                        echo "❌ Error al aplicar migraciones"
+                    fi
                 fi
             else
-                echo "❌ Error al conectar con MySQL. Verifica tus credenciales."
+                echo "❌ Error al crear la tabla de migraciones."
+                echo "   Intenta crear la tabla manualmente o usa: php migrate.php status"
             fi
         fi
     fi

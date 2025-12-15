@@ -20,6 +20,10 @@ spl_autoload_register(function ($class) {
 use src\cli\MakeController;
 use src\cli\MakeModel;
 use src\cli\MakeMiddleware;
+use src\utils\Env;
+
+// Cargar variables de entorno (.env)
+Env::load(__DIR__ . '/.env');
 
 /**
  * Muestra un mensaje de éxito en verde.

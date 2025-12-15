@@ -19,6 +19,10 @@ spl_autoload_register(function ($class) {
 });
 
 use src\utils\Migration;
+use src\utils\Env;
+
+// Cargar variables de entorno (.env)
+Env::load(__DIR__ . '/.env');
 
 /**
  * Muestra la ayuda del sistema de migraciones.

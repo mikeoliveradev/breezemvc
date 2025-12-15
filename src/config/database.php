@@ -45,12 +45,13 @@ class Database
 
         // 2. Obtener credenciales del entorno
         $host = \src\utils\Env::get('DB_HOST', 'localhost');
+        $port = \src\utils\Env::get('DB_PORT', '3306');
         $user = \src\utils\Env::get('DB_USER', 'root');
         $pass = \src\utils\Env::get('DB_PASS', '');
         $name = \src\utils\Env::get('DB_NAME', 'breezemvc');
 
         // 3. Intenta establecer la conexión
-        $conn = new mysqli($host, $user, $pass, $name);
+        $conn = new mysqli($host, $user, $pass, $name, $port);
 
         // 3. Manejo de error de conexión
         if ($conn->connect_error) {
